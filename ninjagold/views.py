@@ -11,27 +11,27 @@ def index(request):
 def farm(request):
 
   request.session['gold'] += random.randint(10,20)
-  return redirect('/')
+  return redirect('/play')
 
 def cave(request):
 
   request.session['gold'] += random.randint(5,10)
-  return redirect('/')
+  return redirect('/play')
 
 def house(request):
 
   request.session['gold'] += random.randint(2,5)
-  return redirect('/')
+  return redirect('/play')
 
 def casino(request):
 
   request.session['gold'] += random.randint(-50,50)
-  return redirect('/')
+  return redirect('/play')
 
 def reset(request):
   
   request.session['gold'] = 0
-  return redirect('/')
+  return redirect('/play')
 
 def success(request):
-  return render(request, 'success.html')
+  return render(request, 'play.html')

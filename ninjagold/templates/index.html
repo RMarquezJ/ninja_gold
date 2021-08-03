@@ -11,36 +11,11 @@
   <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-  <div class="container mt-5 text-center">
-    <div class="row mb-3">
-      <div class="col card bg-success fs-3">Farm
-        <img class="card-img-top" src="https://i.pinimg.com/originals/a0/c6/c3/a0c6c3f4170a697b0392dfa73c33a7b8.gif" alt="" height="180px">
-        <br>Earns 10-20 Gold
-        <a id="find" href="/farm" class="mt-5 btn border border-5 border-dark bg-light"> Find Gold!</a>
-      </div>
-      <div class="col card bg-warning fs-3 mx-2">Cave
-        <img class="card-img-top" src="https://i.pinimg.com/originals/c9/e8/ef/c9e8efca356e9fd2263493d78ab3737d.gif" alt="" height="180px">
-        <br>Earns 5-10 Gold
-        <a id="find" href="/cave" class="mt-5 btn border border-5 border-dark bg-light"> Find Gold!</a>
-      </div>
-      <div class="col card bg-danger fs-3 mx-2 pb-2">House
-        <img class="card-img-top" src="https://i.pinimg.com/originals/8c/00/0e/8c000e13eb516a90b8a3716a0b2d1e75.gif" alt="" height="180px">
-        <br>Earns 2-5 Gold
-        <a id="find" href="/house" class="mt-5 btn border border-5 border-dark bg-light"> Find Gold!</a>
-      </div>
-      <div class="col card bg-primary fs-3">Casino
-        <img class="card-img-top" src="https://i.kym-cdn.com/photos/images/original/001/169/608/a43.gif" alt="" height="180px">
-        <br>Earns/takes 0-50 Gold
-        <a id="find" href="/casino" class="mt-5 btn border border-5 border-dark bg-light"> Find Gold!</a>
-      </div>
-    </div>
-    <h2 class="border border-secondary border-5 text-white">Your Gold: {{request.session.gold}}</h2>
-    <a class="btn btn-danger fs-5" href="/reset">Reset</a>
-  </div>
-  <script>
-    $('#find').on('click',function(){
-      $(this).toggleClass('bg-light bg-warning' )
-    })
-  </script>
+  <h1>Login User</h1>
+  <form action="/success" method="post">
+    {% csrf_token %}
+    Name: <input type="text" name="name">
+    <button type="submit">Login</button>
+  </form>
 </body>
 </html>

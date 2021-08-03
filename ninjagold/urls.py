@@ -8,4 +8,5 @@ urlpatterns = [
   path('house', views.house),
   path('casino', views.casino),
   path('reset', views.reset),
+  path('success', views.success),
 ]

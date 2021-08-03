@@ -8,30 +8,57 @@ def index(request):
   
   return render(request,'index.html')
 
-def farm(request):
+def earn(request, place):
+  
+  miin = None
+  maax = None
 
-  request.session['gold'] += random.randint(10,20)
-  return redirect('/play')
+  if place == 'farm':
+    miin = 10
+    maax = 20
+  
+  elif place == 'cave':
+    miin = 5
+    maax = 10
 
-def cave(request):
+  elif place == 'house':
+    miin = 2
+    maax = 5
 
-  request.session['gold'] += random.randint(5,10)
-  return redirect('/play')
+  elif place == 'casino':
+    miin = -50
+    maax = 50
 
-def house(request):
-
-  request.session['gold'] += random.randint(2,5)
-  return redirect('/play')
-
-def casino(request):
-
-  request.session['gold'] += random.randint(-50,50)
-  return redirect('/play')
+  rand = random.randint(miin,maax)
+  
+  request.session['gold'] += rand
+  
+  return redirect ('/success')
 
 def reset(request):
   
   request.session['gold'] = 0
-  return redirect('/play')
+  return redirect('/success')
 
 def success(request):
   return render(request, 'play.html')
+
+# def farm(request):
+
+#   request.session['gold'] += random.randint(10,20)
+#   return redirect('/success')
+
+# def cave(request):
+
+#   request.session['gold'] += random.randint(5,10)
+#   return redirect('/success')
+
+# def house(request):
+
+#   request.session['gold'] += random.randint(2,5)
+#   return redirect('/success')
+
+# def casino(request):
+
+#   request.session['gold'] += random.randint(-50,50)
+#   return redirect('/success')

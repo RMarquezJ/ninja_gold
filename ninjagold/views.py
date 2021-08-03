@@ -32,3 +32,6 @@ def reset(request):
   
   request.session['gold'] = 0
   return redirect('/')
+
+def success(request):
+  return render(request, 'success.html')

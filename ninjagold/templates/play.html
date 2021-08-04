@@ -11,9 +11,8 @@
   <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-<!-- Hello {{request.session.user}} -->
   <div class="container mt-5 text-center">
-    <div class="row mb-3">
+    <div class="row mb-3 text-center">
       <div class="col card bg-success fs-3">Farm
         <img class="card-img-top" src="https://i.pinimg.com/originals/a0/c6/c3/a0c6c3f4170a697b0392dfa73c33a7b8.gif" alt="" height="180px">
         <br>Earns 10-20 Gold
@@ -37,6 +36,11 @@
     </div>
     <h2 class="border bg-secondary border-secondary border-5 text-white boder-light">Your Gold: {{request.session.gold}}</h2>
     <a class="btn btn-danger fs-5" href="/reset">Reset</a>
+    <div id="activities" class="text-{{request.session.color}} overflow-auto bg-dark my-5 container-fluid" height="200px">
+      {% for event in request.session.log%}
+        <br> {{event}}
+      {% endfor %}
+    </div>
   </div>
   <script>
     $('.find').hover(function(){

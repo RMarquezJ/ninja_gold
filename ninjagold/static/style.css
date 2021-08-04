@@ -1,3 +1,8 @@
 body{
   background-image: url(https://cdna.artstation.com/p/assets/images/images/025/747/130/medium/carlos-gonzalez-demon-slayer-02.jpg?1586802947);
-} 
+}
+
+#activities{
+  height: 100px;
+  width: 500px;
+}
